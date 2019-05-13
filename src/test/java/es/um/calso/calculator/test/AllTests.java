@@ -1,4 +1,4 @@
-package es.um.calso.calculator;
+package es.um.calso.calculator.test;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

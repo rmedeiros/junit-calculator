@@ -56,7 +56,7 @@
 
 	<build>
 		<directory>${project.basedir}/target</directory>
-		<testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory>
+		<testOutputDirectory>${project.build.directory}/build/test-classes</testOutputDirectory>
 		<sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
 		<testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
 		<outputDirectory>${project.build.directory}/build</outputDirectory>
@@ -145,11 +145,11 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>es.um.calso.calculator.Calculator</mainClass>
+							<mainClass>es.um.calso.calculator.main.Calculator</mainClass>
 						</manifest>
 					</archive>
 					<classesDirectory>${project.build.directory}/build</classesDirectory>
-					<outputDirectory>${project.build.directory}/build</outputDirectory>
+					<outputDirectory>${project.build.directory}/jar</outputDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -172,13 +172,13 @@
 							<executable>java</executable>
 							<arguments>
 								<argument>-jar</argument>
-								<argument>${project.build.directory}/build/calculator-${project.version}.jar</argument>
+								<argument>${project.build.directory}/jar/calculator-${project.version}.jar</argument>
 							</arguments>
 						</configuration>
 					</execution>
 				</executions>
 				<configuration>
-					<mainClass>es.um.calso.calculator.Calculator</mainClass>
+					<mainClass>es.um.calso.calculator.main.Calculator</mainClass>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -195,7 +195,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<outputDirectory>${project.build.directory}/test-report</outputDirectory>
+					<outputDirectory>${project.build.directory}/test-report/junit-report</outputDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -208,6 +208,11 @@
 						<format>xml</format>
 					</formats>
 					<outputDirectory>${project.build.directory}/test-report/cobertura</outputDirectory>
+					<instrumentation>
+						<ignores>
+							<ignore>es.um.calso.calculator.test.*</ignore>
+						</ignores>
+					</instrumentation>
 				</configuration>
 				<executions>
 					<execution>
@@ -225,7 +230,7 @@
 				<artifactId>maven-pdf-plugin</artifactId>
 				<version>1.4</version>
 				<configuration>
-					<siteDirectory>${project.build.directory}/surefire-reports</siteDirectory>
+					<siteDirectory>${project.build.directory}/test-report</siteDirectory>
 					<outputDirectory>${project.build.directory}/test-report/pdf</outputDirectory>
 				</configuration>
 				<executions>
@@ -246,7 +251,6 @@
 					<execution>
 						<id>pit-report</id>
 						<!-- optional, this example attached the goal into mvn test phase -->
-						<phase>test</phase>
 						<goals>
 							<goal>mutationCoverage</goal>
 						</goals>
