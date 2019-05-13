@@ -1,0 +1,138 @@
+<?xml version ="1.0" encoding = "UTF-8"?>
+<tests xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://jtestcase.sourceforge.net/dtd/jtestcase2.xsd">
+	<class name="Operations">
+		<method name="addition">
+			<test-case name="First">
+				<params>
+					<param name="param1" type="int">17</param>
+					<param name="param2" type="int">23</param>
+				</params>
+				<asserts>
+					<assert name="result" type="int" action="EQUALS">40</assert>
+				</asserts>
+			</test-case>
+			<test-case name="Second">
+				<params>
+					<param name="param1" type="int">17</param>
+					<param name="param2" type="int">-18</param>
+				</params>
+				<asserts>
+					<assert name="result" type="int" action="EQUALS">-1</assert>
+				</asserts>
+			</test-case>
+		</method>
+		<method name="substraction">
+			<test-case name="First">
+				<params>
+					<param name="param1" type="int">23</param>
+					<param name="param2" type="int">17</param>
+				</params>
+				<asserts>
+					<assert name="result" type="int" action="EQUALS">6</assert>
+				</asserts>
+			</test-case>
+			<test-case name="Second">
+				<params>
+					<param name="param1" type="int">20</param>
+					<param name="param2" type="int">-6</param>
+				</params>
+				<asserts>
+					<assert name="result" type="int" action="EQUALS">26</assert>
+				</asserts>
+			</test-case>
+		</method>
+		<method name="division">
+
+			<test-case name="Correct">
+				<params>
+					<param name="numerator" type="int">10</param>
+					<param name="denominator" type="int">2</param>
+				</params>
+				<asserts>
+					<assert name="result" type="int" action="EQUALS">5</assert>
+				</asserts>
+			</test-case>
+			<test-case name="DivisionByZero">
+				<params>
+					<param name="numerator" type="int">75</param>
+					<param name="denominator" type="int">0</param>
+				</params>
+				<asserts>
+					<assertparam name="message" type="java.lang.String"
+						action="EQUALS">You cannot divide by zero
+					</assertparam>
+				</asserts>
+			</test-case>
+		</method>
+		<method name="multiplication">
+			<test-case name="First">
+				<params>
+					<param name="param1" type="int">5</param>
+					<param name="param2" type="int">5</param>
+				</params>
+				<asserts>
+					<assert name="result" type="int" action="EQUALS">25</assert>
+				</asserts>
+			</test-case>
+			<test-case name="Second">
+				<params>
+					<param name="param1" type="int">6</param>
+					<param name="param2" type="int">-6</param>
+				</params>
+				<asserts>
+					<assert name="result" type="int" action="EQUALS">-36</assert>
+				</asserts>
+			</test-case>
+			<test-case name="Third">
+				<params>
+					<param name="param1" type="int">-7</param>
+					<param name="param2" type="int">-6</param>
+				</params>
+				<asserts>
+					<assert name="result" type="int" action="EQUALS">42</assert>
+				</asserts>
+			</test-case>
+		</method>
+		<method name="biggest">
+			<test-case name="First">
+				<params>
+					<param name="param1" type="int">17</param>
+					<param name="param2" type="int">23</param>
+				</params>
+				<asserts>
+					<assert name="result" type="int" action="EQUALS">23</assert>
+				</asserts>
+			</test-case>
+			<test-case name="Second">
+				<params>
+					<param name="param1" type="int">17</param>
+					<param name="param2" type="int">15</param>
+				</params>
+				<asserts>
+					<assert name="result" type="int" action="EQUALS">17</assert>
+				</asserts>
+			</test-case>
+		</method>
+		<method name="smallest">
+			<test-case name="First">
+				<params>
+					<param name="param1" type="int">17</param>
+					<param name="param2" type="int">23</param>
+				</params>
+				<asserts>
+					<assert name="result" type="int" action="EQUALS">17</assert>
+				</asserts>
+			</test-case>
+			<test-case name="Second">
+				<params>
+					<param name="param1" type="int">17</param>
+					<param name="param2" type="int">15</param>
+				</params>
+				<asserts>
+					<assert name="result" type="int" action="EQUALS">15</assert>
+				</asserts>
+			</test-case>
+		</method>
+	</class>
+</tests>
